@@ -1,0 +1,15 @@
+services:
+  api:
+    build: .
+    container_name: sii-lr03-api
+    ports:
+      - "8000:8000"
+    environment:
+      WHISPER_MODEL: base
+      HF_HOME: /models/huggingface
+    volumes:
+      - whisper_models:/models/huggingface
+    restart: unless-stopped
+
+volumes:
+  whisper_models:
